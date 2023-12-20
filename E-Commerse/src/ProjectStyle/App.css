@@ -1,0 +1,21 @@
+ .navbar-nav a {
+     font-size: 18px;
+ }
+
+
+ .container1 {
+
+     position: absolute;
+
+     left: 40rem;
+     top: 7rem;
+
+ }
+
+
+
+
+ .cart {
+     text-decoration: none;
+     color: black;
+ }

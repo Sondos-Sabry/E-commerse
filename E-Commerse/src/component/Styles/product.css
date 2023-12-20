@@ -1,0 +1,27 @@
+.products {
+    margin-left: 100px;
+}
+
+@media screen and (min-width: 80rem) {
+    .products {
+        margin: 4em 2em;
+    }
+}
+
+.fontproduct {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(30, 7, 53);
+}
+
+.priceproduct {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(30, 7, 53);
+}
+
+.leadproduct {
+    font-family: 'Courier New', Courier, monospace
+}
+
+.text-uppercase text-black-50 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

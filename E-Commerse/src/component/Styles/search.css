@@ -1,0 +1,30 @@
+.search {
+    width: 40%;
+
+}
+
+.search-top {
+    width: 100%;
+}
+
+.search input {
+    width: 100%;
+    padding: 15px 25px;
+    font-size: 18px;
+    margin-top: 50px;
+    margin-bottom: 90px;
+
+    margin-left: 150px;
+    border-radius: 20px;
+}
+
+.search-result {
+    width: 100%;
+    background-color: white;
+    margin-top: 10px;
+}
+
+.search-result div {
+    width: 100%;
+    padding: 10px 25px;
+}
