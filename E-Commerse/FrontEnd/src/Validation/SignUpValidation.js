@@ -3,7 +3,7 @@ const validationSignup = (values) => {
     let errors = {};
   
     const emailPattern = /\S+@\S+\.\S+/;
-    const passwordPattern = /^[A-Za-z]\w{7,14}$/;
+    const passwordPattern = /^[A-Za-z]+[0-9]\w{7,14}$/;
   
     // Name validation
     if (!values.name) {
@@ -25,7 +25,7 @@ const validationSignup = (values) => {
     } else if (!emailPattern.test(values.email)) {
       errors.email = 'Invalid email address';
     } else {
-      errors.email = '';
+      errors.email = " ";
     }
   
     // Password validation

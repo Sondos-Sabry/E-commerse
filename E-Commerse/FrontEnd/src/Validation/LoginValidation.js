@@ -20,7 +20,7 @@ const validationLogin = (values) => {
     } else if (!passwordPattern.test(values.password )) {
       errors.password = 'Password must be at least 7 characters';
     }else{
-        errors.password="";
+        errors.password='';
     }
   
     return errors;

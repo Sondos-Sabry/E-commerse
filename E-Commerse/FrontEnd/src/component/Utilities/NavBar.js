@@ -7,26 +7,30 @@ import { useSelector } from "react-redux";
 import LanguageSelector from "./LanguageSelector";
 
 function NavBar() {
+   
     const { t, i18n } = useTranslation();
 
-    const state = useSelector((state) => state.handleCart)
-    const [active, setActive] = useState("nav__menu");
-    const [icon, setIcon] = useState("nav__toggler");
-    const navToggle = () => {
-        if (active === "nav__menu") {
-            setActive("nav__menu nav__active");
-        } else setActive("nav__menu");
+    const state = useSelector((state) => state.handleCart);
+    const [active, setActive] = useState(false);
 
-        // Icon Toggler
-        if (icon === "nav__toggler") {
-            setIcon("nav__toggler toggle");
-        } else setIcon("nav__toggler");
+    const toggleMenu = () => {
+        setActive(!active);
     };
+
+    const closeMenu = () => {
+        setActive(false);
+    };
+
+
     return (
         <nav className="nav">
-            <NavLink to="/" className="nav__brand">
-                <span style={{ color: '	aqua' }}>D O</span>L L<span style={{ color: 'aqua' }}>A B Y</span></NavLink>
-            <ul className={active}>
+            <div className="nav__brand">
+                <NavLink to="/">
+                    <span style={{ color: 'aqua' }}>D O</span>L L<span style={{ color: 'aqua' }}>A B Y</span>
+                </NavLink>
+            </div>
+           
+            <ul className={`nav__menu ${active ? 'nav__active' : ''}`}>
                 <li className="nav__item">
                     <NavLink to="/" className="nav__link"> <i className="fa-solid fa-house"></i>  {t('Home')}</NavLink>
                 </li>
@@ -37,21 +41,18 @@ function NavBar() {
                     <NavLink to="/cart" className="nav__link"> <i className="fa fa-shopping-cart me-1"></i> {t('Cart')} {state.length} </NavLink>
                 </li>
                 <li className="nav__item">
-                    <NavLink to='/review' className="nav__link"><i class="fa-solid fa-star"></i>{t('Reviews')}</NavLink>
+                    <NavLink to='/review' className="nav__link"><i className="fa-solid fa-star"></i>{t('Reviews')}</NavLink>
                 </li>
                 <li className="nav__item">
                     <NavLink to='/login' className="nav__link"><i className="fa fa-sign-in me-1"></i>   {t('SignIn')} </NavLink>
                 </li>
-               <li className="nav__item .nav__link mx-5"> <LanguageSelector /></li>
+                <li className="nav__item .nav__link mx-5"> <LanguageSelector /></li>
             </ul>
-            <div onClick={navToggle} className={icon}>
-                <div className="line1"></div>
-                <div className="line2"></div>
-                <div className="line3"></div>
+            <div id="icons_left" onClick={toggleMenu}>
+              <i id="bar" className={true? 'fas fa-times': 'fas fa-bars'}></i>
             </div>
         </nav>
     );
-
 }
 
 export default NavBar;
