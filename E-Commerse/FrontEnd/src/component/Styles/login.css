@@ -1,69 +1,57 @@
-.app {
-    font-family: sans-serif;
+
+
+.login-container {
+    max-width: 400px;
+    margin :0,auto;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-    height: 100vh;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    background-color: #f8f9fd;
-    color: #071332;
-}
-
-input[type="text"],
-input[type="password"] {
-    height: 25px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-
-}
-
-input[type="submit"] {
-    margin-top: 10px;
-    cursor: pointer;
-    font-size: 15px;
-    background: #02174c;
-    border: 9px solid;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 20px;
-}
-
-input[type="submit"]:hover {
-    background: #349ed7;
-}
-
-.button-container {
-    display: flex;
-    justify-content: center;
+    height: 90vh;
 }
 
 .login-form {
-    background-color: white;
-    padding: 5rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
 }
 
-.list-container {
-    display: flex;
+.login-form label {
+    font-weight: bold;
 }
 
-.error {
-    color: red;
-    font-size: 12px;
+.login-form input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    box-sizing: border-box;
 }
 
-.title {
-    font-size: 25px;
-    margin-bottom: 30px;
-    padding-left: 90px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
-.input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin: 10px;
+.login-form button:hover {
+    background-color: #0056b3;
+}
+.signup{
+    text-decoration: none;
+    color: #0056b3;
+    font: bolder;
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 600px) {
+    .login-form {
+        max-width: 100%;
+    }
 }
