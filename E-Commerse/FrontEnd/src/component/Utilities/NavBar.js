@@ -42,7 +42,7 @@ function NavBar() {
                 <li className="nav__item">
                     <NavLink to='/login' className="nav__link"><i className="fa fa-sign-in me-1"></i>   {t('SignIn')} </NavLink>
                 </li>
-               <li className="nav__item"> <LanguageSelector /></li>
+               <li className="nav__item .nav__link mx-5"> <LanguageSelector /></li>
             </ul>
             <div onClick={navToggle} className={icon}>
                 <div className="line1"></div>

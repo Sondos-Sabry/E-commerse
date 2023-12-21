@@ -1,6 +1,6 @@
 .search {
     width: 40%;
-
+margin-left: 220px;
 }
 
 .search-top {
@@ -27,4 +27,27 @@
 .search-result div {
     width: 100%;
     padding: 10px 25px;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+      
+    }
+
+    .card, .product{
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+        align-items: center;
+        justify-content: center;
+        padding-left: 20px;
+        margin-left: 61px !important;
+      
+    }
+    .search{
+      margin-left: 0px;
+    }
 }

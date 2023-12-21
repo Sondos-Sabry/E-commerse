@@ -1,0 +1,33 @@
+
+.rating-box h3 {
+    font-size: 19px;
+    color: #dadada;
+    font-weight: 500;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .rating_box div.stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+  }
+.star-rating {
+    display: inline-block;
+    font-size: 24px;
+    color: #0056b3;
+    
+  }
+  
+  .star-rating i {
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+  }
+  
+  .star-rating i.active {
+    color:rgb(0, 33, 65); 
+    
+  }
+  

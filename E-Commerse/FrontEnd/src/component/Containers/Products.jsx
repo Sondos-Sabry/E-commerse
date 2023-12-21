@@ -4,12 +4,14 @@ import { NavLink } from 'react-router-dom'
 import { addCart } from '../../redux/action';
 import Search from '../Utilities/Search';
 import '../Styles/products.css'
+import StarRating from './StarRating'; // Adjust the path based on your file structure
 
 
 const Products = () => {
 
-    const [data, setData] = useState([])
-    const [filter, setFilter] = useState(data)
+    const [data, setData] = useState([]);
+    const [filter, setFilter] = useState(data);
+    const [productRatings, setProductRatings] = useState({});
     const dispatch = useDispatch();
     const addProduct = (product) => {
         dispatch(addCart(product));
@@ -28,10 +30,23 @@ const Products = () => {
         }
     }
 
-    useEffect(() => {
 
-        getProducts()
-    }, [])
+
+    useEffect(() => {
+        getProducts();
+        return () => {
+            componentMounted = false;
+        };
+    }, []);
+
+    //rating
+
+    const handleRatingChange = (productId, newRating) => {
+        setProductRatings((prevRatings) => ({
+            ...prevRatings,
+            [productId]: newRating,
+        }));
+    };
 
     const filterProduct = (cat) => {
         const updatedList = data.filter((x) => x.category === cat);
@@ -39,7 +54,7 @@ const Products = () => {
     }
     const ShowProducts = () => {
         return (<>
-            <div className="buttons d-flex justify-content-center mb-5 pb-5">
+            <div className=" buttons d-flex justify-content-center mb-5 pb-5 mb-5 mx-2">
                 <button className="btn btn-outline-primary me-3" onClick={() => setFilter(data)}>All</button>
 
                 <button className="btn btn-outline-primary me-3" onClick={() => filterProduct("women's clothing")}>
@@ -53,7 +68,7 @@ const Products = () => {
                 return (
                     <>
 
-                    <div className="col-12 col-md-6 col-lg-3 product">
+                        <div className="col-12 col-md-6 col-lg-3 product">
                             <div class="card  text-center p-4" key={product.id}>
                                 <img src={product.image} class="card-img-top mx-5 " alt={product.title} height="150px" />
                                 <div class="card-body">
@@ -64,35 +79,28 @@ const Products = () => {
                                     <div></div>
 
                                     <i className="fa fa-shopping-cart me-1" onClick={() => addProduct(product)}> </i>
-
-
-                                    <NavLink to={`/products/${product.id}`} className="btn btn-light ms-2 px-3 py-2">
-                                        More Details
-                                    </NavLink>
-                                </div>
-                            </div>
-                            </div> 
-                        {/* <div class=" d-flex product  " >
-                            <div class="column  col-12 col-md-6 col-lg-3">
-                                <div class="card product my-4 "key={product.id}  >
-                                    <img src={product.image} class="card-img-top mx-5 justify-content-center " alt={product.title} height="150px" />
-                                    <div class="card-body">
-                                        <h4 class="card-title text-center">{product.title}</h4>
-                                        <p class="card-text text-center lead fw-bold">${product.price}</p>
-                                        <div class="product">
-                                            <div class="col-6 col-lg-4">
-                                                <i className="fa fa-shopping-cart me-1" onClick={() => addProduct(product)}> </i>
-                                            </div>
-                                            <div class="col-sm-6 col-lg-8">
-                                                <NavLink to={`/products/${product.id}`} className="btn btn-light ms-2 px-3 py-2">
-                                                    More Details
-                                                </NavLink>
-                                            </div>
-                                        </div>
+                                    <NavLink to={`/products/${product.id}`} className="btn btn-light ms-2 px-3 py-2 details">   More Details</NavLink>
+                                    <div className="rating-box">
+                                        <h3>How was your experience?</h3>
+                                        <StarRating
+                                            productId={product.id}
+                                            rating={productRatings[product.id] || 0}
+                                            onRatingChange={handleRatingChange}
+                                        />
+                                        <p>Selected Rating: {productRatings[product.id] || 0}</p>
                                     </div>
+                                    {/*  <div class="stars">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div> */}
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
+
                     </>
                 );
             })}

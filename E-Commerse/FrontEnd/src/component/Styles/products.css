@@ -4,7 +4,7 @@
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
     padding: 16px;
     text-align: center;
     background-color: #fff;
@@ -17,10 +17,61 @@
     padding: 0 10px;
   }
 
+  .card img{
+    margin-left: 80px !important;
+  }
+  .card .details{
+    color: #fff;
+    background: rgb(0, 33, 65);
+  }
+
+/* .rating_box{
+  position: relative;
+  padding: 25px 50px 35px ;
+  
+}
+.rating-box h3 {
+  font-size: 19px;
+  color: #dadada;
+  font-weight: 500;
+  margin-top: 20px;
+  text-align: center;
+}
+ .rating_box div.stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+  }
+  .stars i{
+    color:rgb(0, 33, 65);
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .stars i.active {
+    color: #fff;
+  } */
+
 @media screen and (max-width: 600px) {
     .column {
       width: 100%;
       display: block;
       margin-bottom: 20px;
+      
+    }
+
+    .card, .product{
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+        align-items: center;
+        justify-content: center;
+        padding-left: 20px;
+        margin-left: 61px !important;
+      
+    }
+    .search{
+      margin-left: 0px;
     }
 }
