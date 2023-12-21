@@ -1,58 +1,61 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../Styles/NavBar.css";
-import { NavLink } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-
 import { useSelector } from "react-redux";
 import LanguageSelector from "./LanguageSelector";
 
+
+
+
 function NavBar() {
-   
     const { t, i18n } = useTranslation();
-
     const state = useSelector((state) => state.handleCart);
-    const [active, setActive] = useState(false);
-
-    const toggleMenu = () => {
-        setActive(!active);
-    };
-
-    const closeMenu = () => {
-        setActive(false);
-    };
-
+    const [isNavExpanded, setIsNavExpanded] = useState(false);
 
     return (
-        <nav className="nav">
-            <div className="nav__brand">
-                <NavLink to="/">
-                    <span style={{ color: 'aqua' }}>D O</span>L L<span style={{ color: 'aqua' }}>A B Y</span>
-                </NavLink>
-            </div>
-           
-            <ul className={`nav__menu ${active ? 'nav__active' : ''}`}>
-                <li className="nav__item">
-                    <NavLink to="/" className="nav__link"> <i className="fa-solid fa-house"></i>  {t('Home')}</NavLink>
-                </li>
-                <li className="nav__item">
-                    <NavLink to="/products" className="nav__link"  > <i className="fa-solid fa-shirt"></i> {t('Product')} </NavLink>
-                </li>
-                <li className="nav__item">
-                    <NavLink to="/cart" className="nav__link"> <i className="fa fa-shopping-cart me-1"></i> {t('Cart')} {state.length} </NavLink>
-                </li>
-                <li className="nav__item">
-                    <NavLink to='/review' className="nav__link"><i className="fa-solid fa-star"></i>{t('Reviews')}</NavLink>
-                </li>
-                <li className="nav__item">
-                    <NavLink to='/login' className="nav__link"><i className="fa fa-sign-in me-1"></i>   {t('SignIn')} </NavLink>
-                </li>
-                <li className="nav__item .nav__link mx-5"> <LanguageSelector /></li>
-            </ul>
-            <div id="icons_left" onClick={toggleMenu}>
-              <i id="bar" className={true? 'fas fa-times': 'fas fa-bars'}></i>
+        <nav className="navigation">
+            <a href="/" className="brand-name">
+                <span style={{ color: 'aqua' }}>D O</span>L L<span style={{ color: 'aqua' }}>A B Y</span>
+            </a>
+
+            <button className="hamburger" onClick={() => setIsNavExpanded(!isNavExpanded)}>
+        
+                <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="white"
+        >
+          <path
+            fillRule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+            clipRule="evenodd"
+          />
+        </svg>
+            </button>
+            <div className={`navigation-menu ${isNavExpanded ? 'expanded' : ''}`}>
+                <ul>
+                    <li>
+                        <a href="/" className="nav__link"> <i className="fa-solid fa-house"></i>  {t('Home')}</a>
+                    </li>
+                    <li>
+                        <a href="/products" className="nav__link"  > <i className="fa-solid fa-shirt"></i> {t('Product')} </a>
+                    </li>
+                    <li>
+                        <a href="/cart" className="nav__link"> <i className="fa fa-shopping-cart me-1"></i> {t('Cart')} {state.length} </a>
+                    </li>
+                    <li>
+                        <a href='/review' className="nav__link"><i className="fa-solid fa-star"></i>{t('Reviews')}</a>
+                    </li>
+                    <li>
+                        <a href='/login' className="nav__link"><i className="fa fa-sign-in me-1"></i>   {t('SignIn')} </a>
+                    </li>
+                    <li>
+                    <LanguageSelector />
+                    </li>
+                </ul>
             </div>
         </nav>
     );
 }
-
 export default NavBar;

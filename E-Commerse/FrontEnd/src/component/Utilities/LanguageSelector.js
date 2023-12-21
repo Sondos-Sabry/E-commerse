@@ -12,7 +12,7 @@ import '../Styles/LanguageSelectors.css';
   };
 
   return (
-<div class="dropdown">
+ <div class="dropdown">
   <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    Lan
   </button>
@@ -20,7 +20,9 @@ import '../Styles/LanguageSelectors.css';
     <button class="dropdown-item" type="button" onClick={() => changeLanguage('en')}>English</button>
     <button class="dropdown-item" type="button" onClick={() => changeLanguage('ar')}>العربية</button>
   </div>
-</div>
+</div> 
+
+
 
   // {/* <button class="dropdown-item" type="button" onClick={() => changeLanguage('en')}>English</button>
   //  <button class="dropdown-item" type="button" onClick={() => changeLanguage('ar')}>العربية</button> */}

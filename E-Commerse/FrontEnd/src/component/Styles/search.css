@@ -9,7 +9,7 @@ margin-left: 220px;
 
 .search input {
     width: 100%;
-    padding: 15px 25px;
+    padding: 5px 25px;
     font-size: 18px;
     margin-top: 50px;
     margin-bottom: 90px;
@@ -25,10 +25,20 @@ margin-left: 220px;
 }
 
 .search-result div {
-    width: 100%;
+    /* width: 100%; */
     padding: 10px 25px;
 }
-
+.search-product{
+    width: 100%;
+    width: 100%;
+    /* display: block; */
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    /* padding-left: -17px; */
+    gap: 16px;
+    margin-left: 8px !important;
+}
 @media screen and (max-width: 600px) {
     .column {
       width: 100%;
@@ -49,5 +59,9 @@ margin-left: 220px;
     }
     .search{
       margin-left: 0px;
+    }
+
+  .search-top  .search {
+        margin-left: 32px;
     }
 }

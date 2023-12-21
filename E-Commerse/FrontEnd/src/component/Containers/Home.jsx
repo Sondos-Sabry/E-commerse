@@ -6,6 +6,7 @@ import Search from '../Utilities/Search'
 export default function Home() {
     return (
         <div class="">
+        
 
             <Products />
         </div>

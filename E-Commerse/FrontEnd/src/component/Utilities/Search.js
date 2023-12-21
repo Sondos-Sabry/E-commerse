@@ -47,9 +47,9 @@ function Search() {
             <div className='search'>
                 <input type='text' placeholder='search...' onChange={e => handleFilter(e.target.value)} />
             </div>
-            <div className="col-12 col-md-6 col-lg-3 product search-result">
-                {data.map((product, i) => (
-                    <div class="card  text-center p-4" key={product.id}>
+            <div className="row search-product search-result">
+                { data.map((product, i) => (
+                    <div class="col-md-6 col-lg-3 card  text-center p-4" key={product.id}>
                         <img src={product.image} class="card-img-top mx-5 " alt={product.title} height="150px" />
                         <div class="card-body">
                             <h5 class="card-title mb-0">{product.title}</h5>
