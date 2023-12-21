@@ -6,7 +6,10 @@ width: 100%;
 }
 
 
-
+section,
+.class-text{
+    width: 100%;
+}
 
 .copy{
     background-color: rgba(0, 0, 0, 0.2)

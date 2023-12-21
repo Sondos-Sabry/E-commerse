@@ -8,8 +8,8 @@ const Footer = () => {
         <div class=" ">
             <footer class="text-center text-white">
                 <div class="">
-                    <section class="mt-5">
-                        <div class="row text-center d-flex justify-content-center pt-5">
+                    <section class="mt-5 section">
+                        <div class="class-text row text-center d-flex justify-content-center pt-5">
                             <div class="col-md-2">
                                 <h6 class="text-uppercase font-weight-bold">
                                     <a  class="text-white" href="/">Home</a>
@@ -39,7 +39,7 @@ const Footer = () => {
                     </section>
                     <hr class="my-5" />
                     <section class="mb-5">
-                        <div class="row d-flex justify-content-center">
+                        <div class="row d-flex justify-content-center class-text">
                             <div class="col-lg-8">
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
