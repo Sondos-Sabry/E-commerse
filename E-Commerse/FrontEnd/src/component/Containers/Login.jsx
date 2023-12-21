@@ -1,91 +1,56 @@
-import React, { useState } from "react";
-
-import '../Styles/login.css'
-
-
+// Login.js
+import React ,{useState}from "react";
+import '../Styles/login.css';
+import validationLogin from '../../Validation/LoginValidation';
 function Login() {
-    // React States
-    const [errorMessages, setErrorMessages] = useState({});
-    const [isSubmitted, setIsSubmitted] = useState(false);
 
-    // User Login info
-    const database = [
+    const[values,setValues]=useState(
         {
-            username: "user1",
-            password: "pass1"
-        },
-        {
-            username: "user2",
-            password: "pass2"
+            email:'',
+            password:''
         }
-    ];
+    );
 
-    const errors = {
-        uname: "invalid username",
-        pass: "invalid password"
-    };
+    const [error,setError]=useState({});
+    // input change
+    const handleInput=(event)=>{
+        setValues({...values,[event.target.name]:[event.target.value]})
+    }
 
-    const handleSubmit = (event) => {
-        //Prevent page reload
-        event.preventDefault();
-
-        var { uname, pass } = document.forms[0];
-
-        // Find user login info
-        const userData = database.find((user) => user.username === uname.value);
-
-        // Compare user info
-        if (userData) {
-            if (userData.password !== pass.value) {
-                // Invalid password
-                setErrorMessages({ name: "pass", message: errors.pass });
-            } else {
-                setIsSubmitted(true);
-            }
-        } else {
-            // Username not found
-            setErrorMessages({ name: "uname", message: errors.uname });
-        }
-    };
-
-    // Generate JSX code for error message
-    const renderErrorMessage = (name) =>
-        name === errorMessages.name && (
-            <div className="error">{errorMessages.message}</div>
-        );
-
-    // JSX code for login form
-    const renderForm = (
-        <div className="form">
-        <form onSubmit={handleSubmit}>
-            <div className="input-container">
-                <label>Username </label>
-                <input type="text" name="uname" required />
-                {renderErrorMessage("uname")}
-            </div>
-            <div className="input-container">
-                <label>Password </label>
-                <input type="password" name="pass" required />
-                {renderErrorMessage("pass")}
-            </div>
-            <div className="button-container">
-                <input type="submit" />
-              
-            </div>
-            <p className="signup-link">
-                    Don't have an account? <a href="/signup">Sign Up</a>
-                </p>
-        </form>
-    </div>
-);
-
+    // form handling
+     const handleSubmit=(event)=>{
+       event.preventDefault();
+       const validationError =validationLogin(values);
+       setError(validationError);
+       
+     }
     return (
-        <div className="app">
-            <div className="login-form">
-                <div className="title">Sign In</div>
-                {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
-            </div>
+        
+        <div className="container login-container">
+        <div className="login-form">
+            <h2 className="text-center">Login</h2>
+            <form action="" method="post" onSubmit={handleSubmit}>
+            <div className="form-group">
+                    <label htmlFor="email">Email :</label>
+                    <input type="email" id="email" name="email" class="form-control" 
+                     onChange={handleInput}  />
+                   <span>{error.email&& <span className="text-danger">{error.email}</span>}</span>
+                </div>
+    
+                <div className="form-group">
+                    <label htmlFor="password">Password :</label>
+                    <input type="password" id="password" name="password" class="form-control"onChange={handleInput} 
+                    />
+               <span>{error.password&& <span className="text-danger">{error.password}</span>}</span>
+  
+                </div>
+                <button type="submit">Login</button>
+                <br/>
+                  <p>Don't have an account ?<a href="/signup" className="signup">Sign Up</a></p>
+            </form>
         </div>
+    </div>
+          
     );
 }
 
