@@ -3,7 +3,7 @@ const validationSignup = (values) => {
     let errors = {};
   
     const emailPattern = /\S+@\S+\.\S+/;
-    const passwordPattern = /^[A-Za-z]+[0-9]\w{7,14}$/;
+    const passwordPattern = /^[a-zA-Z0-9]{7,}$/;
   
     // Name validation
     if (!values.name) {
