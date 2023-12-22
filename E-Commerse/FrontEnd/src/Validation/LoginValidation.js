@@ -4,7 +4,7 @@ const validationLogin = (values) => {
     let errors = {};
   
     const emailPattern=/\S+@\S+\.\S+/;
-    const passwordPattern=/^[A-Za-z]\w{7,14}$/;
+    const passwordPattern=/^[a-zA-Z0-9]{8,}$/;
     // Email validation
     if (!values.email) {
       errors.email = 'Email is required';
